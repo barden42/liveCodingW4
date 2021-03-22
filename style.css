@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.appBar {
+  background-color: darkorange;
+  position: sticky;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
+#secretWord {
+    font-size: x-large;
+    text-align: center;
+}
+
+#wrapper {
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
