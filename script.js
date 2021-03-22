@@ -14,13 +14,39 @@ const secretWord = words[index];
 
 let findLetters = [];
 
-let displayWord = "";
+function refreshWord (){
+    
+    let displayWord = "";
+
+for (let i = 0; i < secretWord.length; i++){
+
+    if (findLetters.includes(secretWord[i])){
+        displayWord = displayWord + secretWord[i];
+    }
+    else{
+        displayWord = displayWord + "X";
+    }
+}
 document.getElementById("secretWord").innerHTML = displayWord;
+}
 
-// display work remplace les lettres non encore trouvées par des * et les lettre trouvée par la lettre elle même
-// ex d**n***
+refreshWord();
 
-// recupère le click sur le bouton validdate
+const validateBtn = document.querySelector('#validate');
+validateBtn.addEventListener('click', function (){
+    const inputValue = document.querySelector('#letter').value;
+
+    if (secretWord.includes(inputValue)){
+        findLetters.push(inputValue);
+        refreshWord();
+    }else {
+        life--;
+    }
+})
+
+
+
+
 // chope la lettre entrée dans l'input
 // si il y plus d'une char -> retourne une alerte
 
