@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <title>Jeu du pendu</title>
-    <link rel="stylesheet" type="text/css" src="style.css" />
-</head>
-<body>
-    <div class="appBar">Jeu du pendu</div> <!-- Position fixe, couleur background ..., texte centré -->
+  </head>
+  <body>
+    <div class="appBar">Jeu du pendu</div>
+    <!-- Position fixe, couleur background ..., texte centré -->
     <div id="wrapper">
-        <p id="secretWord">Mot secret</p> <!-- centré, gros -->
+      <p id="secretWord">Mot secret</p>
+      <!-- centré, gros -->
 
-        <!-- 3 éléments du dessous, aligné horiz -->
+      <!-- 3 éléments du dessous, aligné horiz -->
+      <div class="container">
         <p>Vies restantes : <span id="life"></span></p>
         <input type="text" id="letter" />
         <button id="validate">Tenter ma chance</button>
+      </div>
     </div>
-    <script src="script.js" type="text/javascript"/>
-</body>
+    <script src="script.js" type="text/javascript" />
+  </body>
 </html>
