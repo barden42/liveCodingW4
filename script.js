@@ -1,57 +1,66 @@
+//create a table with words/variables to discover
 let words = [
-    "kangourou",
-    "table",
-    "ordinateur",
-    "president",
-    "chateaux",
-    "chocolatine",
-    "dernier"
+  "kangourou",
+  "table",
+  "ordinateur",
+  "president",
+  "chateaux",
+  "chocolatine",
+  "dernier",
 ];
 
+//set the life number
 let life = 5;
+
+//choose a random variable among the table
 const index = Math.floor(Math.random() * words.length);
 const secretWord = words[index];
 
+//declare an empty table to store the letters found by the user
 let findLetters = [];
 
-function refreshWord (){
-    
-    let displayWord = "";
+//create a function wich displays the random word with "X"
+//then displays the right letter if it has been found by the user
 
-for (let i = 0; i < secretWord.length; i++){
+function refreshWord() {
+  let displayWord = "";
 
-    if (findLetters.includes(secretWord[i])){
-        displayWord = displayWord + secretWord[i];
+  for (let i = 0; i < secretWord.length; i++) {
+   
+    if (findLetters.includes(secretWord[i])) {
+      displayWord = displayWord + secretWord[i];
+    } else {
+      displayWord = displayWord + "X";
     }
-    else{
-        displayWord = displayWord + "X";
-    }
-}
-document.getElementById("secretWord").innerHTML = displayWord;
+  }
+  document.getElementById("secretWord").innerHTML = displayWord;
 }
 
+//call the function to begin
 refreshWord();
 
-const validateBtn = document.querySelector('#validate');
-validateBtn.addEventListener('click', function (){
-    const inputValue = document.querySelector('#letter').value;
+//create a variable to be able to listen the button 
+const validateBtn = document.querySelector("#validate");
 
-    if (secretWord.includes(inputValue)){
-        findLetters.push(inputValue);
-        refreshWord();
-    }else {
-        life--;
-    }
-})
+//create a variable to be able to display the life number dynamically
+const nbDeVies = document.querySelector("#life");
+nbDeVies.innerHTML = life;
 
+//listen the button
+validateBtn.addEventListener("click", function () {
+    //get the letter
+  const inputValue = document.querySelector("#letter").value;
 
+  if (secretWord.includes(inputValue)) {
+    findLetters.push(inputValue);
+    refreshWord();
+  } else {
+    life--;
+  }
 
+nbDeVies.innerHTML = life;
+});
 
-// chope la lettre entrée dans l'input
+//TODO
 // si il y plus d'une char -> retourne une alerte
-
-// vérification de l'existence de la lettre dans le mot 
-// Si ok -> on ajoute la lettre dans findLetters -> QUI EST UN ARRAY
-// Si nok -> on décrémente le nb de vies
-
 // refresh l'interface après chaque action
